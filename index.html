@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Free and low-cost courses in India for people who can't afford college fees: government schemes, open universities, apprenticeships and trusted private platforms.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Shiksha Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Hind:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a transit system. Hero → route map (tracks = careers, stations = courses) → route planner → ticket rack of every course → rider tips. */
+:root{
+  --paper:#edf0e8; --card:#fbfcf7; --ink:#14213d; --muted:#57616f; --line:#cbd2c4;
+  --accent:#9a5a00; --accent-fill:#f4bf4f; --accent-ink:#2a1a00;
+  --t-tech:#2a63c9; --t-trade:#c25f10; --t-degree:#1f7a49; --t-exams:#bb3328; --t-biz:#7a42b0; --t-digital:#0d7f7a;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"Hind","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0e1520; --card:#162030; --ink:#e6eae0; --muted:#9aa5b4; --line:#2b3749;
+  --accent:#f2b740; --accent-fill:#f2b740; --accent-ink:#231500;
+  --t-tech:#6f9df0; --t-trade:#f0944a; --t-degree:#4fbf83; --t-exams:#ef7468; --t-biz:#b386e2; --t-digital:#3cc4bd;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#0e1520; --card:#162030; --ink:#e6eae0; --muted:#9aa5b4; --line:#2b3749;
+  --accent:#f2b740; --accent-fill:#f2b740; --accent-ink:#231500;
+  --t-tech:#6f9df0; --t-trade:#f0944a; --t-degree:#4fbf83; --t-exams:#ef7468; --t-biz:#b386e2; --t-digital:#3cc4bd;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;letter-spacing:.01em}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:62ch;margin:.5rem 0 0}
+section{padding-block:56px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:900;font-size:1.35rem;letter-spacing:.02em}
+.roundel{width:26px;height:26px;border-radius:50%;border:5px solid var(--accent-fill);position:relative;flex:none}
+.roundel::after{content:"";position:absolute;left:-9px;right:-9px;top:50%;height:6px;margin-top:-3px;background:var(--ink)}
+.bar nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.bar nav a,.savedbtn{font-size:.9rem;text-decoration:none;padding:6px 10px;border-radius:6px;color:var(--muted)}
+.bar nav a:hover{color:var(--ink);background:var(--card)}
+.savedbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-family:inherit}
+.savedbtn b{font-family:var(--f-mono);font-weight:500}
+
+/* hero */
+.hero{padding-block:56px 24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(3rem,9vw,6.4rem);font-weight:900;letter-spacing:-.005em;text-transform:uppercase}
+.hero h1 .fare{display:inline-block;background:var(--accent-fill);color:var(--accent-ink);padding:0 .18em;border-radius:6px;transform:rotate(-2deg)}
+.hindi{font-family:var(--f-body);font-weight:500;color:var(--muted);font-size:1.05rem;margin-top:12px}
+.hero p.lede{font-size:1.1rem}
+.board{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:18px 20px;font-family:var(--f-mono);font-size:.82rem}
+.board .row{display:flex;justify-content:space-between;gap:12px;padding-block:8px;border-bottom:1px dashed color-mix(in srgb,var(--paper) 25%,transparent)}
+.board .row:last-child{border-bottom:0}
+.board .num{font-family:var(--f-display);font-weight:800;font-size:1.9rem;line-height:1;color:var(--accent-fill);font-variant-numeric:tabular-nums}
+.board .lbl{align-self:center;text-transform:uppercase;letter-spacing:.08em;opacity:.85}
+.board .title{opacity:.65;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;margin-bottom:4px}
+
+/* map */
+.map-card{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+.map-scroll{overflow-x:auto}
+.map-scroll svg{display:block;width:100%;min-width:760px;height:auto}
+.track{fill:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;transition:opacity .2s}
+.hit{fill:none;stroke:transparent;stroke-width:26;cursor:pointer}
+.line{cursor:pointer;outline:none}
+.map-dim .line{opacity:.28}
+.map-dim .line.on{opacity:1}
+.stn{fill:var(--card);stroke-width:4;cursor:pointer}
+.stn-label{font-family:var(--f-body);font-size:13px;font-weight:600;fill:var(--ink);text-anchor:middle;pointer-events:none}
+.dest{font-family:var(--f-display);font-weight:800;font-size:19px;fill:var(--ink);text-transform:uppercase;letter-spacing:.03em}
+.ix{fill:var(--card);stroke:var(--ink);stroke-width:3}
+.ix-label{font-family:var(--f-mono);font-size:11px;fill:var(--muted);letter-spacing:.1em}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.legend button{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;font:inherit;font-size:.88rem;cursor:pointer}
+.legend button:hover{border-color:var(--ink)}
+.swatch{width:18px;height:6px;border-radius:3px;flex:none}
+
+/* planner */
+.planner{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;margin-top:24px;align-items:start}
+.pform{display:grid;gap:18px}
+.pform fieldset{border:0;padding:0;margin:0;display:grid;gap:6px}
+.pform legend{font-weight:600;margin-bottom:6px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;padding:7px 12px;font:inherit;font-size:.9rem;cursor:pointer;display:flex;align-items:center;gap:7px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.route{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.route-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.route-head h3{font-size:1.7rem;font-weight:800;text-transform:uppercase}
+.total{font-family:var(--f-mono);font-size:.82rem;background:var(--accent-fill);color:var(--accent-ink);padding:4px 10px;border-radius:999px}
+.stops{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0}
+.stop{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;position:relative;padding-bottom:20px}
+.stop:last-child{padding-bottom:0}
+.stop::before{content:"";position:absolute;left:14px;top:20px;bottom:-4px;width:6px;background:var(--tc)}
+.stop:last-child::before{display:none}
+.dot{width:34px;height:34px;border-radius:50%;border:6px solid var(--tc);background:var(--card);position:relative;z-index:1}
+.stop:last-child .dot{background:var(--tc)}
+.stop .kind{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stop a.sname{font-weight:600;font-size:1.08rem;text-decoration:none}
+.stop a.sname:hover{text-decoration:underline}
+.stop p{margin:2px 0 0;color:var(--muted);font-size:.93rem}
+.stop .sfare{font-family:var(--f-mono);font-size:.78rem;color:var(--accent)}
+
+/* filters */
+.filters{display:grid;gap:14px;margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.search{display:flex;gap:10px;align-items:center}
+.search input{flex:1;min-width:0;font:inherit;font-size:1rem;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.fgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.fg .glabel{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:4px 11px;font:inherit;font-size:.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.resultbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.count{font-family:var(--f-mono);font-size:.85rem;color:var(--muted)}
+.linkbtn{background:none;border:0;color:var(--accent);font:inherit;font-size:.9rem;cursor:pointer;text-decoration:underline;padding:0}
+
+/* tickets */
+.rack{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,350px),1fr));gap:16px;margin-top:14px}
+.ticket{--tc:var(--muted);display:grid;grid-template-columns:minmax(0,1fr) 112px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;position:relative;transition:transform .15s, box-shadow .15s}
+.ticket:hover{transform:translateY(-2px);box-shadow:0 6px 18px color-mix(in srgb,var(--ink) 12%,transparent)}
+.ticket.flash{animation:flash 1.4s ease}
+@keyframes flash{0%,40%{box-shadow:0 0 0 4px var(--tc)}100%{box-shadow:0 0 0 0 transparent}}
+.tmain{padding:16px 16px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.thead{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.lmark{display:inline-flex;align-items:center;width:28px;height:12px;position:relative;flex:none}
+.lmark::before{content:"";position:absolute;inset:3px 0;background:var(--tc);border-radius:3px}
+.lmark::after{content:"";position:absolute;left:8px;top:0;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--tc);box-sizing:border-box}
+.code{color:var(--tc);font-weight:500}
+.sector{margin-left:auto;padding:1px 7px;border-radius:4px;border:1px solid var(--line)}
+.sector.gov{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ticket h3{font-family:var(--f-body);font-size:1.12rem;font-weight:600;line-height:1.3}
+.org{font-size:.85rem;color:var(--muted);margin-top:-4px}
+.desc{font-size:.93rem;margin:2px 0 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font-size:.75rem;padding:1px 8px;border-radius:4px;background:var(--paper);color:var(--muted)}
+.tactions{display:flex;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.go{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:.9rem;padding:6px 12px;border-radius:6px;background:var(--ink);color:var(--paper)}
+.go:hover{background:var(--tc)}
+.save{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;padding:6px 10px;font:inherit;font-size:.88rem;cursor:pointer}
+.save[aria-pressed="true"]{background:var(--accent-fill);color:var(--accent-ink);border-color:var(--accent-fill)}
+.stub{border-left:2px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;padding:14px 8px;position:relative}
+.stub::before,.stub::after{content:"";position:absolute;left:-10px;width:18px;height:18px;border-radius:50%;background:var(--paper);border:1px solid var(--line)}
+.stub::before{top:-10px}
+.stub::after{bottom:-10px}
+.stub .flabel{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;color:var(--muted)}
+.stub .famt{font-family:var(--f-display);font-weight:900;font-size:2.3rem;line-height:1;color:var(--ink)}
+.stub .famt.pay{color:var(--t-degree)}
+.stub .fnote{font-size:.72rem;color:var(--muted);line-height:1.3}
+.empty{grid-column:1/-1;text-align:center;padding:40px 16px;border:2px dashed var(--line);border-radius:var(--r);color:var(--muted)}
+
+/* tips */
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;margin-top:24px;border-top:2px solid var(--ink)}
+.tip{padding:20px 20px 20px 0;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.tip h3{font-size:1.4rem;font-weight:800;text-transform:uppercase}
+.tip p{margin:0;color:var(--muted);font-size:.95rem}
+.tip a{color:var(--accent);font-weight:500}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .hero-grid,.planner{grid-template-columns:minmax(0,1fr)}
+  .bar nav a{display:none}
+  .bar nav{margin-left:auto}
+}
+@media (max-width:420px){
+  .ticket{grid-template-columns:minmax(0,1fr) 92px}
+  .stub .famt{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="roundel" aria-hidden="true"></span>Shiksha Line</a>
+    <nav aria-label="Sections">
+      <a href="#map">Route map</a>
+      <a href="#plan">Plan a route</a>
+      <a href="#courses">All courses</a>
+      <a href="#tips">Rider tips</a>
+      <button class="savedbtn" id="savedBtn" type="button">Saved <b id="savedCount">0</b></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Free &amp; low-cost learning across India</div>
+        <h1>Learn a skill.<br>Fare: <span class="fare">₹0</span></h1>
+        <div class="hindi" lang="hi">कॉलेज की फीस नहीं भर सकते? सीखना फिर भी मुफ़्त है।</div>
+        <p class="lede">Can't afford college fees? Every course here is free or close to it. Most are run by the Government of India, and the rest come from trusted private platforms. Pick a line, plan your stops, and start this week.</p>
+      </div>
+      <div class="board" aria-label="Network summary">
+        <div class="title">Network status · Today</div>
+        <div class="row"><span class="lbl">Courses on the network</span><span class="num" id="sTotal">0</span></div>
+        <div class="row"><span class="lbl">Run by government</span><span class="num" id="sGov">0</span></div>
+        <div class="row"><span class="lbl">Completely free</span><span class="num" id="sFree">0</span></div>
+        <div class="row"><span class="lbl">Pay you a stipend</span><span class="num" id="sPaid">0</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" style="padding-top:8px">
+    <div class="wrap">
+      <div class="eyebrow">Route map · मार्ग</div>
+      <h2>Six lines. One starting point: you.</h2>
+      <p class="lede">Each line heads to a different kind of work. Stations are courses, in the order you would take them. Tap a line to see every course on it, or tap a station to jump to that course.</p>
+      <div class="map-card">
+        <div class="map-scroll"><svg id="mapSvg" viewBox="0 0 1000 430" role="img" aria-label="Route map of six learning tracks"></svg></div>
+        <div class="legend" id="legend"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap">
+      <div class="eyebrow">Journey planner · यात्रा</div>
+      <h2>Plan your route in two taps</h2>
+      <p class="lede">Tell us where you are starting and where you want to go. We suggest three stops: something to start with, a course that builds the skill, and a step that gets you a credential or a job.</p>
+      <div class="planner">
+        <div class="pform">
+          <fieldset>
+            <legend>I have finished</legend>
+            <div class="seg" id="pStart"></div>
+          </fieldset>
+          <fieldset>
+            <legend>I want to reach</legend>
+            <div class="seg" id="pTrack"></div>
+          </fieldset>
+        </div>
+        <div class="route" id="route" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="wrap">
+      <div class="eyebrow">Ticket rack · सभी कोर्स</div>
+      <h2>Every course on the network</h2>
+      <div class="filters">
+        <div class="search">
+          <input id="q" type="search" placeholder="Search: python, tailoring, class 12, english, upsc…" aria-label="Search courses" autocomplete="off">
+        </div>
+        <div class="fgroups">
+          <div class="fg"><div class="glabel">Line</div><div class="chips" id="fTrack"></div></div>
+          <div class="fg"><div class="glabel">Run by</div><div class="chips" id="fSector"></div></div>
+          <div class="fg"><div class="glabel">Fare</div><div class="chips" id="fFare"></div></div>
+          <div class="fg"><div class="glabel">Needs</div><div class="chips" id="fNeeds"></div></div>
+        </div>
+      </div>
+      <div class="resultbar">
+        <span class="count" id="count"></span>
+        <button class="linkbtn" id="reset" type="button">Clear all filters</button>
+      </div>
+      <div class="rack" id="rack"></div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="wrap">
+      <div class="eyebrow">Rider tips · सावधानी</div>
+      <h2>Before you pay anyone anything</h2>
+      <div class="tips">
+        <div class="tip"><h3>Check the address</h3><p>Real government course sites end in <b>.gov.in</b>, <b>.nic.in</b> or <b>.ac.in</b>. PMKVY training is free. If an agent asks for a "registration fee" for a free scheme, walk away.</p></div>
+        <div class="tip"><h3>Learn free, pay for paper only</h3><p>On NPTEL and SWAYAM you can watch every lecture and do every assignment free. The fee is only for the proctored exam, and only if you want the certificate.</p></div>
+        <div class="tip"><h3>Ask for financial aid</h3><p>On Coursera, look for the "Financial aid available" link next to Enroll. Write honestly about your situation. If approved, the certificate costs nothing.</p></div>
+        <div class="tip"><h3>No internet at home?</h3><p>Swayam Prabha runs free education channels on DD Free Dish. ITIs, PMKVY centres and Jan Shikshan Sansthan teach in person. Download NCERT books once and read offline.</p></div>
+        <div class="tip"><h3>Get paid to learn</h3><p>Apprenticeships under NAPS and NATS pay a monthly stipend while you train at a real company. It is often the fastest way from course to job.</p></div>
+        <div class="tip"><h3>Find scholarships</h3><p>Central and state scholarships are listed in one place on the <a href="https://scholarships.gov.in" target="_blank" rel="noopener">National Scholarship Portal ↗</a>. Apply every year; deadlines usually fall in autumn.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Shiksha Line · A free guide to free learning. Not affiliated with any listed organisation.</span>
+    <span>Fees, stipends and eligibility change. Always confirm on the official site before you enrol.</span>
+  </div>
+</footer>
+
+<script>
+const TRACKS = [
+  {id:'tech',    code:'TC', name:'Code & Tech',       hi:'टेक',      dest:'Tech job'},
+  {id:'trade',   code:'TR', name:'Trades & Skills',   hi:'हुनर',     dest:'Skilled trade'},
+  {id:'degree',  code:'DG', name:'Degrees & School',  hi:'डिग्री',   dest:'Degree'},
+  {id:'exams',   code:'EX', name:'Exams & Study',     hi:'परीक्षा',  dest:'Exam ready'},
+  {id:'biz',     code:'BZ', name:'Business & Money',  hi:'व्यापार',  dest:'Own business'},
+  {id:'digital', code:'DL', name:'Digital & English', hi:'डिजिटल',   dest:'Office job'},
+];
+const STARTS = [
+  {id:'s10',  name:'Class 10 or less'},
+  {id:'s12',  name:'Class 12'},
+  {id:'grad', name:'Graduate / diploma'},
+  {id:'work', name:'Working now'},
+];
+const ALL = ['s10','s12','grad','work'];
+// s: gov|pvt   c: free | cert (free to learn, pay for certificate) | low | paid (stipend paid to you)
+// lv: 1 start here, 2 build the skill, 3 credential or job step   w: who it suits
+const COURSES = [
+  // Code & Tech
+  {t:'tech',k:'Spoken Tutorial',n:'Spoken Tutorial',o:'IIT Bombay · Ministry of Education',u:'https://spoken-tutorial.org',s:'gov',c:'free',cn:'Free',cert:false,l:'English, Hindi + many Indian languages',off:false,lv:1,w:ALL,d:'Short screen-recorded lessons on Python, C, LibreOffice, Linux and more, dubbed in Indian languages.'},
+  {t:'tech',k:'NIELIT',n:'NIELIT CCC & O Level',o:'NIELIT · MeitY',u:'https://www.nielit.gov.in',s:'gov',c:'low',cn:'Low fees',cert:true,l:'English, Hindi',off:true,lv:1,w:ALL,d:'Government computer certificates (CCC, O Level) that many state and central job notices ask for.'},
+  {t:'tech',k:'freeCodeCamp',n:'freeCodeCamp Certifications',o:'freeCodeCamp',u:'https://www.freecodecamp.org',s:'pvt',c:'free',cn:'Free',cert:true,l:'English, some Hindi',off:false,lv:1,w:['s12','grad','work'],d:'Learn web development, JavaScript and Python by building projects. Certificates are free.'},
+  {t:'tech',k:'Springboard',n:'Infosys Springboard',o:'Infosys',u:'https://infyspringboard.onwingspan.com',s:'pvt',c:'free',cn:'Free',cert:true,l:'English',off:false,lv:1,w:ALL,d:'Free courses from programming basics to cloud and AI, with completion certificates.'},
+  {t:'tech',k:'NPTEL',n:'NPTEL Online Courses',o:'IITs & IISc · Ministry of Education',u:'https://nptel.ac.in',s:'gov',c:'cert',cn:'Exam fee for certificate',cert:true,l:'English, some Indian-language subtitles',off:false,lv:2,w:['s12','grad','work'],d:'Full IIT and IISc courses in programming, data science, electronics and engineering.'},
+  {t:'tech',k:'CS50',n:'CS50: Introduction to Computer Science',o:'Harvard University',u:'https://cs50.harvard.edu/x/',s:'pvt',c:'free',cn:'Free',cert:true,l:'English',off:false,lv:2,w:['s12','grad','work'],d:'One of the best-known intro programming courses. Free certificate from CS50 when you finish.'},
+  {t:'tech',k:'Virtual Labs',n:'Virtual Labs',o:'IIT Delhi & partners · Ministry of Education',u:'https://www.vlab.co.in',s:'gov',c:'free',cn:'Free',cert:false,l:'English',off:false,lv:2,w:['s12','grad'],d:'Run science and engineering lab experiments in your browser when you have no lab access.'},
+  {t:'tech',k:'Cisco NetAcad',n:'Cisco Networking Academy',o:'Cisco',u:'https://www.netacad.com',s:'pvt',c:'free',cn:'Many courses free',cert:true,l:'English',off:false,lv:2,w:['s12','grad','work'],d:'Self-paced courses in networking, cybersecurity and Python, with badges.'},
+  {t:'tech',k:'IIT Madras BS',n:'IIT Madras BS in Data Science',o:'IIT Madras',u:'https://study.iitm.ac.in/ds/',s:'gov',c:'low',cn:'Income-based fee waivers',cert:true,l:'English',off:false,lv:3,w:['s12','grad','work'],d:'An online degree open to anyone who passed Class 12 with Maths. Large fee waivers for low-income families.'},
+  {t:'tech',k:'FutureSkills',n:'FutureSkills Prime',o:'MeitY & NASSCOM',u:'https://futureskillsprime.in',s:'gov',c:'free',cn:'Many courses free',cert:true,l:'English',off:false,lv:3,w:['grad','work'],d:'Government-backed courses in AI, cloud, cybersecurity and more, with incentives on assessment fees.'},
+  {t:'tech',k:'IIRS',n:'ISRO IIRS e-Learning',o:'Indian Institute of Remote Sensing · ISRO',u:'https://elearning.iirs.gov.in',s:'gov',c:'free',cn:'Free',cert:true,l:'English',off:false,lv:3,w:['grad','work'],d:'Free courses on remote sensing, GIS and satellite data, taught by ISRO scientists.'},
+  {t:'tech',k:'Microsoft Learn',n:'Microsoft Learn',o:'Microsoft',u:'https://learn.microsoft.com/training/',s:'pvt',c:'cert',cn:'Exams cost extra',cert:true,l:'English, Hindi',off:false,lv:3,w:['grad','work'],d:'Free learning paths for Azure, Excel, Power BI and more. Pay only to sit a certification exam.'},
+  {t:'tech',k:'AWS',n:'AWS Skill Builder',o:'Amazon Web Services',u:'https://skillbuilder.aws',s:'pvt',c:'cert',cn:'Exams cost extra',cert:true,l:'English',off:false,lv:3,w:['grad','work'],d:'Hundreds of free cloud computing courses. Certification exams are paid.'},
+
+  // Trades & Skills
+  {t:'trade',k:'Skill India Hub',n:'Skill India Digital Hub',o:'Ministry of Skill Development',u:'https://www.skillindiadigital.gov.in',s:'gov',c:'free',cn:'Free',cert:true,l:'English, Hindi + regional',off:false,lv:1,w:ALL,d:'The national skilling portal. Browse free courses and find training centres near you.'},
+  {t:'trade',k:'JSS',n:'Jan Shikshan Sansthan',o:'Ministry of Skill Development',u:'https://jss.gov.in',s:'gov',c:'free',cn:'Nominal or no fee',cert:true,l:'Local languages',off:true,lv:1,w:['s10'],d:'Tailoring, beauty, electrical work and more for school dropouts and adults aged 15 to 45.'},
+  {t:'trade',k:'PMKVY',n:'Pradhan Mantri Kaushal Vikas Yojana',o:'Ministry of Skill Development',u:'https://www.pmkvyofficial.org',s:'gov',c:'free',cn:'Training free',cert:true,l:'Hindi, English + regional',off:true,lv:2,w:['s10','s12','grad'],d:'Free short-term training at accredited centres, with a government-recognised certificate.'},
+  {t:'trade',k:'ITI',n:'Industrial Training Institutes (ITI)',o:'DGT · Ministry of Skill Development',u:'https://dgt.gov.in',s:'gov',c:'low',cn:'Low fees at govt ITIs',cert:true,l:'Hindi, English + regional',off:true,lv:2,w:['s10','s12'],d:'One- and two-year trade courses: electrician, fitter, welder, mechanic, COPA and more.'},
+  {t:'trade',k:'DDU-GKY',n:'Deen Dayal Upadhyaya Grameen Kaushalya Yojana',o:'Ministry of Rural Development',u:'https://ddugky.gov.in',s:'gov',c:'free',cn:'Free, incl. stay',cert:true,l:'Hindi + regional',off:true,lv:2,w:['s10','s12'],d:'Free residential training with placement support for rural youth aged 15 to 35 from poor households.'},
+  {t:'trade',k:'Tata STRIVE',n:'Tata STRIVE',o:'Tata Community Initiatives Trust',u:'https://www.tatastrive.com',s:'pvt',c:'free',cn:'Free',cert:true,l:'Hindi, English + regional',off:true,lv:2,w:['s10','s12'],d:'Free job-oriented training in hospitality, retail, automotive and more, with placement help.'},
+  {t:'trade',k:'NAPS',n:'Apprenticeship India (NAPS)',o:'Ministry of Skill Development',u:'https://www.apprenticeshipindia.gov.in',s:'gov',c:'paid',cn:'Monthly stipend',cert:true,l:'Hindi, English',off:true,lv:3,w:['s10','s12','grad'],d:'Train on the job at a real company and earn a monthly stipend, with a certificate at the end.'},
+  {t:'trade',k:'NATS',n:'National Apprenticeship Training Scheme',o:'Ministry of Education',u:'https://nats.education.gov.in',s:'gov',c:'paid',cn:'Monthly stipend',cert:true,l:'English, Hindi',off:true,lv:3,w:['grad'],d:'Paid apprenticeships for engineering graduates, diploma holders and general graduates.'},
+
+  // Degrees & School
+  {t:'degree',k:'NIOS',n:'National Institute of Open Schooling',o:'Ministry of Education',u:'https://www.nios.ac.in',s:'gov',c:'low',cn:'Low fees',cert:true,l:'Hindi, English + regional',off:true,lv:1,w:['s10'],d:'Finish Class 10 or Class 12 at your own pace, from home. Recognised for college admission and jobs.'},
+  {t:'degree',k:'NDLI',n:'National Digital Library of India',o:'IIT Kharagpur · Ministry of Education',u:'https://ndl.iitkgp.ac.in',s:'gov',c:'free',cn:'Free',cert:false,l:'Many Indian languages',off:false,lv:1,w:ALL,d:'Millions of free books, papers and lectures for every level, in one search.'},
+  {t:'degree',k:'SWAYAM',n:'SWAYAM',o:'Ministry of Education',u:'https://swayam.gov.in',s:'gov',c:'cert',cn:'Exam fee for certificate',cert:true,l:'English, Hindi',off:false,lv:2,w:['s12','grad','work'],d:'Free university-level courses. Credits from passed exams can transfer to your degree.'},
+  {t:'degree',k:'IGNOU',n:'IGNOU Degrees & Diplomas',o:'Indira Gandhi National Open University',u:'https://www.ignou.ac.in',s:'gov',c:'low',cn:'Low fees',cert:true,l:'English, Hindi',off:true,lv:2,w:['s12','grad','work'],d:'Bachelor\'s, master\'s and diploma programmes at a fraction of regular college fees. Fee exemptions for some groups.'},
+  {t:'degree',k:'e-PG Pathshala',n:'e-PG Pathshala',o:'INFLIBNET · UGC',u:'https://epgp.inflibnet.ac.in',s:'gov',c:'free',cn:'Free',cert:false,l:'English',off:false,lv:3,w:['grad'],d:'Free postgraduate study material across 70+ subjects, made by UGC.'},
+  {t:'degree',k:'Coursera',n:'Coursera',o:'Coursera',u:'https://www.coursera.org',s:'pvt',c:'cert',cn:'Financial aid available',cert:true,l:'English, some Hindi',off:false,lv:3,w:['s12','grad','work'],d:'Courses from top universities and companies. Audit many for free, or apply for financial aid.'},
+  {t:'degree',k:'edX',n:'edX',o:'edX',u:'https://www.edx.org',s:'pvt',c:'cert',cn:'Verified certificate extra',cert:true,l:'English',off:false,lv:3,w:['s12','grad','work'],d:'University courses from MIT, Harvard, IITs and others. Audit for free.'},
+  {t:'degree',k:'MIT OCW',n:'MIT OpenCourseWare',o:'MIT',u:'https://ocw.mit.edu',s:'pvt',c:'free',cn:'Free',cert:false,l:'English',off:false,lv:3,w:['grad','work'],d:'Lecture notes, videos and exams from thousands of MIT courses. No sign-up needed.'},
+
+  // Exams & Study
+  {t:'exams',k:'NCERT',n:'NCERT Textbooks (PDF)',o:'NCERT',u:'https://ncert.nic.in/textbook.php',s:'gov',c:'free',cn:'Free',cert:false,l:'Hindi, English, Urdu',off:true,lv:1,w:ALL,d:'Every NCERT book from Class 1 to 12, free to download. The base for boards, NEET, JEE and UPSC.'},
+  {t:'exams',k:'DIKSHA',n:'DIKSHA',o:'Ministry of Education',u:'https://diksha.gov.in',s:'gov',c:'free',cn:'Free',cert:false,l:'Many Indian languages',off:false,lv:1,w:['s10','s12'],d:'Lessons, practice and explainers mapped to your school textbook. Scan the QR code in your book.'},
+  {t:'exams',k:'Khan Academy',n:'Khan Academy',o:'Khan Academy',u:'https://www.khanacademy.org',s:'pvt',c:'free',cn:'Free',cert:false,l:'English, Hindi',off:false,lv:1,w:['s10','s12'],d:'Maths and science from basics up, with practice that adapts to you.'},
+  {t:'exams',k:'Swayam Prabha',n:'Swayam Prabha TV Channels',o:'Ministry of Education',u:'https://swayamprabha.gov.in',s:'gov',c:'free',cn:'Free, no internet',cert:false,l:'English, Hindi',off:true,lv:2,w:['s10','s12','grad'],d:'Free educational TV channels on DD Free Dish, including IIT-PAL classes for JEE preparation.'},
+  {t:'exams',k:'Unacademy',n:'Unacademy Free Classes',o:'Unacademy',u:'https://unacademy.com',s:'pvt',c:'low',cn:'Free classes; plans extra',cert:false,l:'Hindi, English + regional',off:false,lv:2,w:['s12','grad'],d:'Free live classes for UPSC, SSC, banking, JEE and NEET. Full courses are paid.'},
+  {t:'exams',k:'Physics Wallah',n:'Physics Wallah',o:'PW',u:'https://www.pw.live',s:'pvt',c:'low',cn:'Low-cost batches',cert:false,l:'Hindi, English',off:false,lv:3,w:['s10','s12','grad'],d:'Low-priced batches for JEE, NEET, boards and govt exams, plus many free lectures.'},
+
+  // Business & Money
+  {t:'biz',k:'NCFE',n:'Financial Education Programmes',o:'National Centre for Financial Education',u:'https://www.ncfe.org.in',s:'gov',c:'free',cn:'Free',cert:false,l:'English, Hindi + regional',off:false,lv:1,w:ALL,d:'Learn saving, banking, insurance and avoiding fraud. Backed by RBI, SEBI, IRDAI and PFRDA.'},
+  {t:'biz',k:'Startup India',n:'Startup India Learning Programme',o:'DPIIT · Ministry of Commerce',u:'https://www.startupindia.gov.in',s:'gov',c:'free',cn:'Free',cert:true,l:'English, Hindi + regional',off:false,lv:1,w:['s12','grad','work'],d:'A free course on starting up: finding an idea, testing it, and raising money.'},
+  {t:'biz',k:'HubSpot',n:'HubSpot Academy',o:'HubSpot',u:'https://academy.hubspot.com',s:'pvt',c:'free',cn:'Free',cert:true,l:'English',off:false,lv:2,w:['s12','grad','work'],d:'Free certificates in digital marketing, sales and customer service.'},
+  {t:'biz',k:'Alison',n:'Alison',o:'Alison',u:'https://alison.com',s:'pvt',c:'cert',cn:'Certificate paid',cert:true,l:'English',off:false,lv:2,w:ALL,d:'Thousands of free short courses in business, accounting and management.'},
+  {t:'biz',k:'NIESBUD',n:'Entrepreneurship Development Programmes',o:'NIESBUD · Ministry of Skill Development',u:'https://www.niesbud.nic.in',s:'gov',c:'low',cn:'Low or no fee',cert:true,l:'English, Hindi',off:true,lv:3,w:['s12','grad','work'],d:'Training to start and run a small business, including how to use government schemes and loans.'},
+
+  // Digital & English
+  {t:'digital',k:'LearnEnglish',n:'LearnEnglish',o:'British Council',u:'https://learnenglish.britishcouncil.org',s:'pvt',c:'free',cn:'Free',cert:false,l:'English',off:false,lv:1,w:ALL,d:'Free grammar, vocabulary, listening and speaking practice for every level.'},
+  {t:'digital',k:'Duolingo',n:'Duolingo English',o:'Duolingo',u:'https://www.duolingo.com',s:'pvt',c:'free',cn:'Free',cert:false,l:'Learn from Hindi and other Indian languages',off:false,lv:1,w:ALL,d:'Five-minute daily English lessons on your phone, starting from Hindi.'},
+  {t:'digital',k:'NCS',n:'National Career Service',o:'Ministry of Labour & Employment',u:'https://www.ncs.gov.in',s:'gov',c:'free',cn:'Free',cert:false,l:'English, Hindi + regional',off:true,lv:2,w:ALL,d:'Free career counselling, job listings, job fairs and soft-skill courses.'},
+  {t:'digital',k:'Great Learning',n:'Great Learning Academy',o:'Great Learning',u:'https://www.mygreatlearning.com/academy',s:'pvt',c:'free',cn:'Free',cert:true,l:'English, some Hindi',off:false,lv:2,w:['s12','grad','work'],d:'Free courses in Excel, data, marketing and communication, with free certificates.'},
+  {t:'digital',k:'SkillUp',n:'Simplilearn SkillUp',o:'Simplilearn',u:'https://www.simplilearn.com/skillup-free-online-courses',s:'pvt',c:'free',cn:'Free',cert:true,l:'English',off:false,lv:2,w:['s12','grad','work'],d:'Free beginner courses in digital marketing, project management and IT.'},
+  {t:'digital',k:'TCS iON',n:'TCS iON Career Edge',o:'Tata Consultancy Services',u:'https://learning.tcsionhub.in/courses/career-edge-young-professional/',s:'pvt',c:'free',cn:'Free',cert:true,l:'English',off:false,lv:3,w:['s12','grad'],d:'A free course on workplace skills: resumes, interviews, email writing and business etiquette.'},
+];
+
+// derived ids and codes
+const trackById = Object.fromEntries(TRACKS.map(t=>[t.id,t]));
+const counters = {};
+COURSES.forEach((c,i)=>{ c.id='c'+i; counters[c.t]=(counters[c.t]||0)+1; c.code=trackById[c.t].code+'·'+String(counters[c.t]).padStart(2,'0'); });
+const byLvGov = (a,b)=> a.lv-b.lv || (a.s==='gov'?-1:1)-(b.s==='gov'?-1:1);
+const $ = id=>document.getElementById(id);
+const esc = s=>String(s).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+
+// saved
+let saved = new Set();
+try{ saved = new Set(JSON.parse(localStorage.getItem('shiksha-saved')||'[]')); }catch(e){}
+function persist(){ try{ localStorage.setItem('shiksha-saved',JSON.stringify([...saved])); }catch(e){} $('savedCount').textContent=saved.size; }
+
+// stats
+$('sTotal').textContent=COURSES.length;
+$('sGov').textContent=COURSES.filter(c=>c.s==='gov').length;
+$('sFree').textContent=COURSES.filter(c=>c.c==='free').length;
+$('sPaid').textContent=COURSES.filter(c=>c.c==='paid').length;
+
+// fare display
+function fare(c){
+  if(c.c==='free') return {amt:'₹0',note:c.cn==='Free'?'Free to learn':c.cn};
+  if(c.c==='cert') return {amt:'₹0',note:'to learn · '+c.cn.toLowerCase()};
+  if(c.c==='low')  return {amt:'₹',note:c.cn};
+  return {amt:'+₹',note:c.cn+' paid to you',pay:true};
+}
+
+/* ---------- route map ---------- */
+function buildMap(){
+  let s='';
+  TRACKS.forEach((t,i)=>{
+    const y0=186+i*9, y=40+i*70, dy=Math.abs(y-y0), col=`var(--t-${t.id})`;
+    const d=`M40 ${y0} H170 L${170+dy} ${y} H880`;
+    const stops=COURSES.filter(c=>c.t===t.id).sort(byLvGov);
+    const pick=[]; [1,2,3].forEach(lv=>{const f=stops.find(c=>c.lv===lv); if(f) pick.push(f);});
+    stops.forEach(c=>{ if(pick.length<4 && !pick.includes(c)) pick.push(c); });
+    pick.sort(byLvGov);
+    s+=`<g class="line" data-track="${t.id}" tabindex="0" role="button" aria-label="Show ${esc(t.name)} courses">`;
+    s+=`<path class="track" d="${d}" style="stroke:${col}"/><path class="hit" d="${d}"/>`;
+    pick.forEach((c,j)=>{
+      const x=400+j*130;
+      s+=`<circle class="stn" cx="${x}" cy="${y}" r="8" style="stroke:${col}" data-id="${c.id}"><title>${esc(c.n)}</title></circle>`;
+      s+=`<text class="stn-label" x="${x}" y="${y-15}">${esc(c.k)}</text>`;
+    });
+    s+=`<circle cx="880" cy="${y}" r="12" style="fill:${col}"/><circle cx="880" cy="${y}" r="5" style="fill:var(--card)"/>`;
+    s+=`<text class="dest" x="900" y="${y+6}">${esc(t.dest)}</text></g>`;
+  });
+  s+=`<rect class="ix" x="48" y="176" width="30" height="66" rx="15"/>`;
+  s+=`<text class="ix-label" x="34" y="264">YOU ARE HERE</text>`;
+  s+=`<text class="ix-label" x="40" y="280" style="font-family:var(--f-body);font-size:12px">आप यहाँ हैं</text>`;
+  const svg=$('mapSvg'); svg.innerHTML=s;
+  svg.querySelectorAll('.line').forEach(g=>{
+    g.addEventListener('mouseenter',()=>highlight(g.dataset.track));
+    g.addEventListener('mouseleave',()=>highlight(null));
+    g.addEventListener('focus',()=>highlight(g.dataset.track));
+    g.addEventListener('blur',()=>highlight(null));
+    g.addEventListener('click',e=>{
+      const stn=e.target.closest('.stn');
+      if(stn) jumpTo(stn.dataset.id); else showTrack(g.dataset.track);
+    });
+    g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault(); showTrack(g.dataset.track);} });
+  });
+  $('legend').innerHTML=TRACKS.map(t=>`<button type="button" data-track="${t.id}"><span class="swatch" style="background:var(--t-${t.id})"></span>${esc(t.name)} <span lang="hi" style="color:var(--muted)">${t.hi}</span></button>`).join('');
+  $('legend').querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>showTrack(b.dataset.track));
+    b.addEventListener('mouseenter',()=>highlight(b.dataset.track));
+    b.addEventListener('mouseleave',()=>highlight(null));
+  });
+}
+function highlight(id){
+  const svg=$('mapSvg');
+  svg.classList.toggle('map-dim',!!id);
+  svg.querySelectorAll('.line').forEach(g=>g.classList.toggle('on',g.dataset.track===id));
+}
+function showTrack(id){
+  Object.assign(state,{track:id,q:'',saved:false}); $('q').value='';
+  renderFilters(); renderRack();
+  $('courses').scrollIntoView();
+}
+function jumpTo(cid){
+  Object.assign(state,{track:'all',sector:'all',fare:'all',lang:false,offline:false,cert:false,saved:false,q:''}); $('q').value='';
+  renderFilters(); renderRack();
+  const el=document.querySelector(`.ticket[data-id="${cid}"]`);
+  if(el){ el.scrollIntoView({block:'center'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+}
+
+/* ---------- planner ---------- */
+const plan={start:'s12',track:'tech'};
+function renderPlannerControls(){
+  $('pStart').innerHTML=STARTS.map(s=>`<button type="button" data-v="${s.id}" aria-pressed="${plan.start===s.id}">${esc(s.name)}</button>`).join('');
+  $('pTrack').innerHTML=TRACKS.map(t=>`<button type="button" data-v="${t.id}" aria-pressed="${plan.track===t.id}"><span class="swatch" style="background:var(--t-${t.id})"></span>${esc(t.dest)}</button>`).join('');
+  $('pStart').querySelectorAll('button').forEach(b=>b.onclick=()=>{plan.start=b.dataset.v; renderPlannerControls(); renderRoute();});
+  $('pTrack').querySelectorAll('button').forEach(b=>b.onclick=()=>{plan.track=b.dataset.v; renderPlannerControls(); renderRoute();});
+}
+const KIND={1:'Stop 1 · Start here',2:'Stop 2 · Build the skill',3:'Stop 3 · Credential or job step'};
+function renderRoute(){
+  const t=trackById[plan.track];
+  const pool=COURSES.filter(c=>c.t===t.id && c.w.includes(plan.start)).sort(byLvGov);
+  const stops=[];
+  [1,2,3].forEach(lv=>{ const f=pool.find(c=>c.lv===lv && !stops.includes(c)); if(f) stops.push(f); });
+  pool.forEach(c=>{ if(stops.length<3 && !stops.includes(c)) stops.push(c); });
+  stops.sort(byLvGov);
+  const kinds=new Set(stops.map(c=>c.c));
+  let total='Total fare: ₹0';
+  if(kinds.has('low')) total='Total fare: low fees on some stops';
+  else if(kinds.has('cert')) total='₹0 to learn · pay only for exams you choose';
+  if(kinds.has('paid')) total+=' · one stop pays you';
+  const startName=STARTS.find(s=>s.id===plan.start).name;
+  let html=`<div class="route-head"><h3>${esc(startName)} → ${esc(t.dest)}</h3><span class="total">${esc(total)}</span></div>`;
+  if(!stops.length){ html+=`<p class="lede">No direct route yet for this start. Try the Degrees &amp; School line first, then come back.</p>`; }
+  else{
+    html+=`<ol class="stops" style="--tc:var(--t-${t.id})">`+stops.map((c,i)=>{
+      const f=fare(c);
+      const kind=(i===stops.length-1 && stops.length>1)?KIND[3]:KIND[Math.min(i+1,3)];
+      return `<li class="stop"><span class="dot" aria-hidden="true"></span><div>
+        <div class="kind">${kind.replace(/^Stop \d/,'Stop '+(i+1))}</div>
+        <a class="sname" href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.n)} ↗</a>
+        <p>${esc(c.d)}</p>
+        <div class="sfare">${esc(f.amt)} · ${esc(f.note)} · ${c.s==='gov'?'Government':'Private'}</div>
+      </div></li>`;
+    }).join('')+`</ol>`;
+  }
+  $('route').innerHTML=html;
+}
+
+/* ---------- filters + rack ---------- */
+const state={q:'',track:'all',sector:'all',fare:'all',lang:false,offline:false,cert:false,saved:false};
+const FARES=[['all','Any'],['free','₹0'],['cert','₹0 + exam fee'],['low','Low fee'],['paid','Stipend']];
+const SECTORS=[['all','All'],['gov','Government'],['pvt','Private']];
+const NEEDS=[['lang','Hindi / Indian languages'],['offline','Centre or offline'],['cert','Gives certificate'],['saved','Saved only']];
+function chipRow(el,items,key){
+  el.innerHTML=items.map(([v,l])=>`<button type="button" class="chip" data-v="${v}" aria-pressed="${state[key]===v}">${v!=='all'&&key==='track'?`<span class="swatch" style="background:var(--t-${v})"></span>`:''}${esc(l)}</button>`).join('');
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>{state[key]=b.dataset.v; renderFilters(); renderRack();});
+}
+function renderFilters(){
+  chipRow($('fTrack'),[['all','All lines'],...TRACKS.map(t=>[t.id,t.name])],'track');
+  chipRow($('fSector'),SECTORS,'sector');
+  chipRow($('fFare'),FARES,'fare');
+  $('fNeeds').innerHTML=NEEDS.map(([k,l])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${state[k]}">${esc(l)}</button>`).join('');
+  $('fNeeds').querySelectorAll('button').forEach(b=>b.onclick=()=>{state[b.dataset.k]=!state[b.dataset.k]; renderFilters(); renderRack();});
+}
+function matches(c){
+  if(state.track!=='all' && c.t!==state.track) return false;
+  if(state.sector!=='all' && c.s!==state.sector) return false;
+  if(state.fare!=='all' && c.c!==state.fare) return false;
+  if(state.lang && !/hindi|indian|regional|local|urdu/i.test(c.l)) return false;
+  if(state.offline && !c.off) return false;
+  if(state.cert && !c.cert) return false;
+  if(state.saved && !saved.has(c.id)) return false;
+  if(state.q){
+    const hay=[c.n,c.o,c.d,c.l,c.k,trackById[c.t].name,c.s==='gov'?'government sarkari':'private'].join(' ').toLowerCase();
+    if(!state.q.toLowerCase().split(/\s+/).filter(Boolean).every(w=>hay.includes(w))) return false;
+  }
+  return true;
+}
+function ticket(c){
+  const t=trackById[c.t], f=fare(c), on=saved.has(c.id);
+  const tags=[c.l];
+  if(c.cert) tags.push('Certificate');
+  if(c.off) tags.push('Centre / offline');
+  return `<article class="ticket" data-id="${c.id}" style="--tc:var(--t-${c.t})">
+    <div class="tmain">
+      <div class="thead"><span class="lmark" aria-hidden="true"></span><span class="code">${c.code}</span><span>${esc(t.name)}</span><span class="sector ${c.s}">${c.s==='gov'?'GOVT':'PVT'}</span></div>
+      <h3>${esc(c.n)}</h3>
+      <div class="org">${esc(c.o)}</div>
+      <p class="desc">${esc(c.d)}</p>
+      <div class="tags">${tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>
+      <div class="tactions">
+        <a class="go" href="${esc(c.u)}" target="_blank" rel="noopener">Open site ↗</a>
+        <button type="button" class="save" data-id="${c.id}" aria-pressed="${on}">${on?'Saved ✓':'Save'}</button>
+      </div>
+    </div>
+    <div class="stub"><span class="flabel">FARE</span><span class="famt${f.pay?' pay':''}">${f.amt}</span><span class="fnote">${esc(f.note)}</span></div>
+  </article>`;
+}
+function renderRack(){
+  const list=COURSES.filter(matches).sort((a,b)=>TRACKS.findIndex(t=>t.id===a.t)-TRACKS.findIndex(t=>t.id===b.t)||byLvGov(a,b));
+  $('count').textContent=`${list.length} of ${COURSES.length} courses`;
+  $('rack').innerHTML=list.length?list.map(ticket).join(''):
+    `<div class="empty">${state.saved&&!saved.size?'You have not saved any courses yet. Tap <b>Save</b> on a ticket to keep it here.':'No courses match these filters. Try removing one, or <button class="linkbtn" type="button" data-reset>clear all filters</button>.'}</div>`;
+  $('rack').querySelectorAll('.save').forEach(b=>b.onclick=()=>{
+    const id=b.dataset.id; saved.has(id)?saved.delete(id):saved.add(id); persist();
+    if(state.saved) renderRack(); else { const on=saved.has(id); b.setAttribute('aria-pressed',on); b.textContent=on?'Saved ✓':'Save'; }
+  });
+  const r=$('rack').querySelector('[data-reset]'); if(r) r.onclick=resetAll;
+}
+function resetAll(){ Object.assign(state,{q:'',track:'all',sector:'all',fare:'all',lang:false,offline:false,cert:false,saved:false}); $('q').value=''; renderFilters(); renderRack(); }
+
+$('q').addEventListener('input',e=>{state.q=e.target.value.trim(); renderRack();});
+$('reset').onclick=resetAll;
+$('savedBtn').onclick=()=>{ Object.assign(state,{saved:true,track:'all',sector:'all',fare:'all',lang:false,offline:false,cert:false,q:''}); $('q').value=''; renderFilters(); renderRack(); $('courses').scrollIntoView(); };
+
+buildMap(); renderPlannerControls(); renderRoute(); renderFilters(); renderRack(); persist();
+</script>
+</body>
+</html>
