@@ -8,6 +8,8 @@ A transit-map style guide to free and low-cost courses in India, for anyone who 
 - **Save** courses to a list kept in your browser
 - **Rider tips** on avoiding fee scams, financial aid, offline options, paid apprenticeships and scholarships
 
-It is a single static file (`index.html`) with no build step. Open it in a browser, or host it with GitHub Pages.
+Plain HTML, CSS and JavaScript with no build step. Open `index.html` in a browser, or host it with GitHub Pages.
+
+
 
 Fees, stipends and eligibility change often. Always confirm on the official site before you enrol.
