@@ -1,5 +1,4 @@
-// Shiksha Line app: route map, journey planner, filters and saved courses. Data lives in courses.js.
-// derived ids and codes
+
 const trackById = Object.fromEntries(TRACKS.map(t=>[t.id,t]));
 const counters = {};
 COURSES.forEach((c,i)=>{ c.id='c'+i; counters[c.t]=(counters[c.t]||0)+1; c.code=trackById[c.t].code+'·'+String(counters[c.t]).padStart(2,'0'); });
@@ -7,18 +6,16 @@ const byLvGov = (a,b)=> a.lv-b.lv || (a.s==='gov'?-1:1)-(b.s==='gov'?-1:1);
 const $ = id=>document.getElementById(id);
 const esc = s=>String(s).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
 
-// saved
+
 let saved = new Set();
 try{ saved = new Set(JSON.parse(localStorage.getItem('shiksha-saved')||'[]')); }catch(e){}
 function persist(){ try{ localStorage.setItem('shiksha-saved',JSON.stringify([...saved])); }catch(e){} $('savedCount').textContent=saved.size; }
 
-// stats
 $('sTotal').textContent=COURSES.length;
 $('sGov').textContent=COURSES.filter(c=>c.s==='gov').length;
 $('sFree').textContent=COURSES.filter(c=>c.c==='free').length;
 $('sPaid').textContent=COURSES.filter(c=>c.c==='paid').length;
 
-// fare display
 function fare(c){
   if(c.c==='free') return {amt:'₹0',note:c.cn==='Free'?'Free to learn':c.cn};
   if(c.c==='cert') return {amt:'₹0',note:'to learn · '+c.cn.toLowerCase()};
