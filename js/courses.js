@@ -1,4 +1,4 @@
-// Course data for Shiksha Line. To add a course, copy one entry and edit it.
+
 const TRACKS = [
   {id:'tech',    code:'TC', name:'Code & Tech',       hi:'टेक',      dest:'Tech job'},
   {id:'trade',   code:'TR', name:'Trades & Skills',   hi:'हुनर',     dest:'Skilled trade'},
@@ -14,10 +14,9 @@ const STARTS = [
   {id:'work', name:'Working now'},
 ];
 const ALL = ['s10','s12','grad','work'];
-// s: gov|pvt   c: free | cert (free to learn, pay for certificate) | low | paid (stipend paid to you)
-// lv: 1 start here, 2 build the skill, 3 credential or job step   w: who it suits
+
 const COURSES = [
-  // Code & Tech
+  
   {t:'tech',k:'Spoken Tutorial',n:'Spoken Tutorial',o:'IIT Bombay · Ministry of Education',u:'https://spoken-tutorial.org/tutorial-search/',s:'gov',c:'free',cn:'Free',cert:false,l:'English, Hindi + many Indian languages',off:false,lv:1,w:ALL,d:'Short screen-recorded lessons on Python, C, LibreOffice, Linux and more, dubbed in Indian languages.'},
   {t:'tech',k:'NIELIT',n:'NIELIT CCC & O Level',o:'NIELIT · MeitY',u:'https://www.nielit.gov.in/content/course-computer-concepts-ccc-0',s:'gov',c:'low',cn:'Low fees',cert:true,l:'English, Hindi',off:true,lv:1,w:ALL,d:'Government computer certificates (CCC, O Level) that many state and central job notices ask for.'},
   {t:'tech',k:'freeCodeCamp',n:'freeCodeCamp Certifications',o:'freeCodeCamp',u:'https://www.freecodecamp.org/learn',s:'pvt',c:'free',cn:'Free',cert:true,l:'English, some Hindi',off:false,lv:1,w:['s12','grad','work'],d:'Learn web development, JavaScript and Python by building projects. Certificates are free.'},
@@ -32,7 +31,7 @@ const COURSES = [
   {t:'tech',k:'Microsoft Learn',n:'Microsoft Learn',o:'Microsoft',u:'https://learn.microsoft.com/en-us/training/browse/',s:'pvt',c:'cert',cn:'Exams cost extra',cert:true,l:'English, Hindi',off:false,lv:3,w:['grad','work'],d:'Free learning paths for Azure, Excel, Power BI and more. Pay only to sit a certification exam.'},
   {t:'tech',k:'AWS',n:'AWS Skill Builder',o:'Amazon Web Services',u:'https://skillbuilder.aws/learn',s:'pvt',c:'cert',cn:'Exams cost extra',cert:true,l:'English',off:false,lv:3,w:['grad','work'],d:'Hundreds of free cloud computing courses. Certification exams are paid.'},
 
-  // Trades & Skills
+  
   {t:'trade',k:'Skill India Hub',n:'Skill India Digital Hub',o:'Ministry of Skill Development',u:'https://www.skillindiadigital.gov.in/courses',s:'gov',c:'free',cn:'Free',cert:true,l:'English, Hindi + regional',off:false,lv:1,w:ALL,d:'The national skilling portal. Browse free courses and find training centres near you.'},
   {t:'trade',k:'JSS',n:'Jan Shikshan Sansthan',o:'Ministry of Skill Development',u:'https://jss.gov.in',s:'gov',c:'free',cn:'Nominal or no fee',cert:true,l:'Local languages',off:true,lv:1,w:['s10'],d:'Tailoring, beauty, electrical work and more for school dropouts and adults aged 15 to 45.'},
   {t:'trade',k:'PMKVY',n:'Pradhan Mantri Kaushal Vikas Yojana',o:'Ministry of Skill Development',u:'https://www.pmkvyofficial.org/Find-course-of-your-choice',s:'gov',c:'free',cn:'Training free',cert:true,l:'Hindi, English + regional',off:true,lv:2,w:['s10','s12','grad'],d:'Free short-term training at accredited centres, with a government-recognised certificate.'},
