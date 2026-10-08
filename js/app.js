@@ -23,7 +23,7 @@ function fare(c){
   return {amt:'+₹',note:c.cn+' paid to you',pay:true};
 }
 
-/* ---------- route map ---------- */
+
 function buildMap(){
   let s='';
   TRACKS.forEach((t,i)=>{
