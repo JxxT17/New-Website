@@ -1,4 +1,4 @@
-/* Layout: a transit system. Hero → route map (tracks = careers, stations = courses) → route planner → ticket rack of every course → rider tips. */
+
 :root{
   --paper:#edf0e8; --card:#fbfcf7; --ink:#14213d; --muted:#57616f; --line:#cbd2c4;
   --accent:#9a5a00; --accent-fill:#f4bf4f; --accent-ink:#2a1a00;
